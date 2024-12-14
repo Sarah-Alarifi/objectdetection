@@ -3,26 +3,40 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO
 
-# Embed custom CSS
+# Custom CSS for colorful design
 st.markdown(
     """
     <style>
         body {
-            background-color: #f5f7fa;
-            font-family: Arial, sans-serif;
+            background-color: #eef2f3; /* Light background color */
+            font-family: 'Arial', sans-serif;
         }
         .main-title {
-            color: #2C3E50;
+            color: #4CAF50; /* Green */
             text-align: center;
-            font-size: 36px;
+            font-size: 42px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .sub-title {
+            color: #FF9800; /* Orange */
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .uploaded-image {
+            text-align: center;
+            color: #2196F3; /* Blue */
             font-weight: bold;
             margin-top: 20px;
         }
-        .sub-title {
-            color: #34495E;
+        .results-title {
             text-align: center;
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #9C27B0; /* Purple */
+            margin-top: 20px;
         }
         .footer {
             position: fixed;
@@ -30,24 +44,21 @@ st.markdown(
             width: 100%;
             text-align: center;
             padding: 10px;
-            background-color: #2C3E50;
+            background-color: #2C3E50; /* Dark Blue */
             color: white;
         }
-        .uploaded-image {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .results {
-            text-align: center;
+        .detection-result {
+            color: #E91E63; /* Pink */
+            font-weight: bold;
             font-size: 18px;
-            margin-top: 20px;
+            text-align: center;
         }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Main title and description
+# Title and Subtitle
 st.markdown("<div class='main-title'>Detect Kidney Stones by YOLO Object Detection</div>", unsafe_allow_html=True)
 st.markdown("<div class='sub-title'>Upload an image to detect kidney stones using advanced AI</div>", unsafe_allow_html=True)
 
@@ -59,7 +70,11 @@ def load_model():
 model = load_model()
 
 # File uploader
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
+uploaded_file = st.file_uploader(
+    "Choose an image...",
+    type=["jpg", "jpeg", "png"],
+    label_visibility="collapsed",
+)
 
 if uploaded_file:
     st.write("---")
@@ -75,14 +90,14 @@ if uploaded_file:
         results = model.predict(image_np)
 
     st.write("---")
-    st.markdown("<div class='results'>Detection Results</div>", unsafe_allow_html=True)
+    st.markdown("<div class='results-title'>Detection Results</div>", unsafe_allow_html=True)
     
     # Display detection results
     st.image(results[0].plot(), caption="Detection Results", use_column_width=True, output_format="JPEG")
 
-    # Table for detected objects
+    # Detection data
     data = results[0].boxes.data.cpu().numpy()
-    st.write("Detected Objects:")
+    st.markdown("<div class='detection-result'>Detected Objects:</div>", unsafe_allow_html=True)
     st.table(data)
 
 # Footer
