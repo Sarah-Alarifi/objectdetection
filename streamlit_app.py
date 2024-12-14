@@ -3,34 +3,32 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO
 
-# Embed custom CSS for light blue theme
 st.markdown(
     """
     <style>
-        /* Style for Streamlit app background */
         div[data-testid="stAppViewContainer"] {
-            background-color: #e3f2fd; /* Light Blue */
+            background-color: #e3f2fd; 
             padding: 10px;
         }
         div[data-testid="stHeader"] {
-            background: none; /* Remove default header background */
+            background: none;
         }
         .main-title {
-            color: #1565C0; /* Deep Blue */
+            color: #42A5F5;
             text-align: center;
             font-size: 42px;
             font-weight: bold;
             margin-top: 20px;
         }
         .sub-title {
-            color: #1976D2; /* Medium Blue */
+            color: #1976D2;
             text-align: center;
             font-size: 22px;
             margin-bottom: 20px;
         }
         .uploaded-image {
             text-align: center;
-            color: #0288D1; /* Cyan Blue */
+            color: #0288D1;
             font-weight: bold;
             margin-top: 20px;
         }
@@ -38,33 +36,33 @@ st.markdown(
             text-align: center;
             font-size: 24px;
             font-weight: bold;
-            color: #01579B; /* Dark Blue */
+            color: #01579B;
             margin-top: 20px;
         }
         .footer {
             text-align: center;
             padding: 10px;
-            background-color: #0288D1; /* Cyan Blue */
+            background-color: #0288D1; 
             color: white;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
         .detection-result {
-            color: #0277BD; /* Steel Blue */
+            color: #0277BD; 
             font-weight: bold;
             font-size: 18px;
             text-align: center;
         }
         .stButton > button {
-            background-color: #64B5F6; /* Light Blue Button */
+            background-color: #64B5F6; 
             color: white;
             font-size: 16px;
             border-radius: 10px;
             border: none;
         }
         .stButton > button:hover {
-            background-color: #42A5F5; /* Slightly Darker Blue */
+            background-color: #42A5F5; 
         }
     </style>
     """,
@@ -112,6 +110,3 @@ if uploaded_file:
     data = results[0].boxes.data.cpu().numpy()
     st.markdown("<div class='detection-result'>Detected Objects:</div>", unsafe_allow_html=True)
     st.table(data)
-
-# Footer
-st.markdown("<div class='footer'>Built with ❤️ using Streamlit and YOLO</div>", unsafe_allow_html=True)
