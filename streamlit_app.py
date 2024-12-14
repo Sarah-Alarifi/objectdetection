@@ -3,13 +3,13 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO
 
-# Custom CSS for light blue design
+# Custom CSS for a light blue theme
 st.markdown(
     """
     <style>
-        body {
-            background-color: #e3f2fd; /* Light blue background */
-            font-family: 'Arial', sans-serif;
+        /* Apply light blue background to Streamlit's main container */
+        .stApp {
+            background-color: #e3f2fd; /* Light blue */
         }
         .main-title {
             color: #1565C0; /* Deep Blue */
