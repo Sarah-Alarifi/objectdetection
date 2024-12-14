@@ -7,9 +7,9 @@ from ultralytics import YOLO
 st.markdown(
     """
     <style>
-        /* Apply light blue background to Streamlit's main container */
+        /* Apply light blue background to the app */
         .stApp {
-            background-color: #e3f2fd; /* Light blue */
+            background-color: #e3f2fd; /* Light blue background */
         }
         .main-title {
             color: #1565C0; /* Deep Blue */
