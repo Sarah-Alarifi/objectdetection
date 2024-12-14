@@ -69,7 +69,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Title and Subtitle
 st.markdown("<div class='main-title'>Detect Kidney Stones by YOLO Object Detection</div>", unsafe_allow_html=True)
 st.markdown("<div class='sub-title'>Upload an image to detect kidney stones using advanced AI</div>", unsafe_allow_html=True)
 
@@ -80,7 +79,6 @@ def load_model():
 
 model = load_model()
 
-# File uploader
 uploaded_file = st.file_uploader(
     "Choose an image...",
     type=["jpg", "jpeg", "png"],
@@ -95,7 +93,6 @@ if uploaded_file:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_column_width=True, output_format="JPEG")
     
-    # Detection logic
     with st.spinner("Detecting objects..."):
         image_np = np.array(image)
         results = model.predict(image_np)
@@ -103,10 +100,8 @@ if uploaded_file:
     st.write("---")
     st.markdown("<div class='results-title'>Detection Results</div>", unsafe_allow_html=True)
     
-    # Display detection results
     st.image(results[0].plot(), caption="Detection Results", use_column_width=True, output_format="JPEG")
 
-    # Detection data
     data = results[0].boxes.data.cpu().numpy()
     st.markdown("<div class='detection-result'>Detected Objects:</div>", unsafe_allow_html=True)
     st.table(data)
