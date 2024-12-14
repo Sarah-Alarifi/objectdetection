@@ -3,31 +3,30 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO
 
-# Custom CSS for colorful design
+# Custom CSS for light blue design
 st.markdown(
     """
     <style>
         body {
-            background-color: #eef2f3; /* Light background color */
+            background-color: #e3f2fd; /* Light blue background */
             font-family: 'Arial', sans-serif;
         }
         .main-title {
-            color: #4CAF50; /* Green */
+            color: #1565C0; /* Deep Blue */
             text-align: center;
             font-size: 42px;
             font-weight: bold;
             margin-top: 20px;
-            text-shadow: 2px 2px 4px #000000;
         }
         .sub-title {
-            color: #FF9800; /* Orange */
+            color: #1976D2; /* Medium Blue */
             text-align: center;
             font-size: 22px;
             margin-bottom: 20px;
         }
         .uploaded-image {
             text-align: center;
-            color: #2196F3; /* Blue */
+            color: #0288D1; /* Cyan Blue */
             font-weight: bold;
             margin-top: 20px;
         }
@@ -35,7 +34,7 @@ st.markdown(
             text-align: center;
             font-size: 24px;
             font-weight: bold;
-            color: #9C27B0; /* Purple */
+            color: #01579B; /* Dark Blue */
             margin-top: 20px;
         }
         .footer {
@@ -44,14 +43,24 @@ st.markdown(
             width: 100%;
             text-align: center;
             padding: 10px;
-            background-color: #2C3E50; /* Dark Blue */
+            background-color: #0288D1; /* Cyan Blue */
             color: white;
         }
         .detection-result {
-            color: #E91E63; /* Pink */
+            color: #0277BD; /* Steel Blue */
             font-weight: bold;
             font-size: 18px;
             text-align: center;
+        }
+        .stButton > button {
+            background-color: #64B5F6; /* Light Blue Button */
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+        }
+        .stButton > button:hover {
+            background-color: #42A5F5; /* Slightly Darker Blue */
         }
     </style>
     """,
