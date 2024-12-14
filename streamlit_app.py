@@ -3,9 +3,8 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO 
 
-st.markdown("<div class='main-title'>Detect Kidney Stones by YOLO Object Detection</div>", unsafe_allow_html=True)
-st.markdown("<div class='sub-title'>Upload an image to detect kidney stones using advanced AI</div>", unsafe_allow_html=True)
-
+st.title("Detect Kidney Stones by YOLO Object Detection")
+st.write("Upload an image")
 
 @st.cache_resource
 def load_model():
