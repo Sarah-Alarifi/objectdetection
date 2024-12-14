@@ -3,13 +3,17 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO
 
-# Custom CSS for a light blue theme
+# Embed custom CSS for light blue theme
 st.markdown(
     """
     <style>
-        /* Apply light blue background to the app */
-        .stApp {
-            background-color: #e3f2fd; /* Light blue background */
+        /* Style for Streamlit app background */
+        div[data-testid="stAppViewContainer"] {
+            background-color: #e3f2fd; /* Light Blue */
+            padding: 10px;
+        }
+        div[data-testid="stHeader"] {
+            background: none; /* Remove default header background */
         }
         .main-title {
             color: #1565C0; /* Deep Blue */
@@ -38,13 +42,13 @@ st.markdown(
             margin-top: 20px;
         }
         .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
             text-align: center;
             padding: 10px;
             background-color: #0288D1; /* Cyan Blue */
             color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         .detection-result {
             color: #0277BD; /* Steel Blue */
